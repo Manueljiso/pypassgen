@@ -32,34 +32,34 @@ root.title("Password Generator")
 password_label = ttk.Label(root, text="", font=("Arial", 16, "bold"))
 password_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
 
-# Copy to clipboard button
-copy_button = ttk.Button(root, text="Copy to Clipboard", command=copy_to_clipboard)
-copy_button.grid(row=0, column=2, padx=10, pady=10)
+# Length selection
+length_label = tk.Label(root, text="Length:")
+length_label.grid(row=1, column=0, padx=10, pady=5, sticky="w")
+length_entry = ttk.Entry(root)
+length_entry.insert(0, "12")  # Default length
+length_entry.grid(row=1, column=1, padx=10, pady=5)
 
 # Special characters checkbox
 special_chars_var = tk.IntVar(value=1)
-special_chars_checkbox = ttk.Checkbutton(root, text="Include Special Characters", variable=special_chars_var)
-special_chars_checkbox.grid(row=1, column=0, padx=10, pady=5, sticky="w")
+special_chars_checkbox = ttk.Checkbutton(root, text="Special", variable=special_chars_var)
+special_chars_checkbox.grid(row=2, column=0, padx=10, pady=5, sticky="w")
 
 # Special characters entry
 special_chars_entry = ttk.Entry(root)
-special_chars_entry.insert(0, "!@#$%^&*+")
-special_chars_entry.grid(row=1, column=1, padx=10, pady=5)
+special_chars_entry.insert(0, "!@#$%^&*+,.")
+special_chars_entry.grid(row=2, column=1, padx=10, pady=5)
 
 # Uppercase checkbox
 uppercase_var = tk.IntVar(value=1)
-uppercase_checkbox = ttk.Checkbutton(root, text="Include Uppercase", variable=uppercase_var)
-uppercase_checkbox.grid(row=2, column=0, padx=10, pady=5, sticky="w")
-
-# Length selection
-length_label = tk.Label(root, text="Password Length:")
-length_label.grid(row=3, column=0, padx=10, pady=5, sticky="w")
-length_entry = ttk.Entry(root)
-length_entry.insert(0, "10")  # Default length
-length_entry.grid(row=3, column=1, padx=10, pady=5)
+uppercase_checkbox = ttk.Checkbutton(root, text="Uppercase", variable=uppercase_var)
+uppercase_checkbox.grid(row=3, column=0, padx=10, pady=5, sticky="w")
 
 # Generate password button
-generate_button = ttk.Button(root, text="Generate Password", command=generate_password)
-generate_button.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
+generate_button = ttk.Button(root, text="Generate", command=generate_password)
+generate_button.grid(row=4, column=0, padx=10, pady=10)
+
+# Copy to clipboard button
+copy_button = ttk.Button(root, text="Copy", command=copy_to_clipboard)
+copy_button.grid(row=4, column=1, padx=10, pady=10)
 
 root.mainloop()
